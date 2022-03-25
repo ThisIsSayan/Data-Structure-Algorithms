@@ -12,19 +12,19 @@ int GCD(int n1, int n2)
 int MaxGCD(vector<int> reactivity, int n)
 {
 	int max = 0;
-	for (int i = 0; i < n; i++) 
+	for (int i = 0; i < n-1; i++) 
     {
-        for(int j=0; j< n; j++)
+        for(int j=i+1; j < n; j++)
         {
             int val = 0;
-            if(i != j)
-            {
+            // if(i != j)
+            // {
                 val = GCD(reactivity[i], reactivity[j]);
 		        if (val > max) 
                 {
 			        max = val;
 		        }
-            }
+            // }
         }
 	}
 
