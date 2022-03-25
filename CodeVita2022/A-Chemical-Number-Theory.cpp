@@ -11,16 +11,21 @@ int GCD(int n1, int n2)
 
 int MaxGCD(vector<int> reactivity, int n)
 {
-
 	int max = 0;
-	for (int i = 0; i < n - 1; i++) 
+	for (int i = 0; i < n; i++) 
     {
-		int val = GCD(reactivity[i], reactivity[i + 1]);
-
-		if (val > max) 
+        for(int j=0; j< n; j++)
         {
-			max = val;
-		}
+            int val = 0;
+            if(i != j)
+            {
+                val = GCD(reactivity[i], reactivity[j]);
+		        if (val > max) 
+                {
+			        max = val;
+		        }
+            }
+        }
 	}
 
 	return max;
@@ -28,7 +33,7 @@ int MaxGCD(vector<int> reactivity, int n)
 
 int main()
 {
-    string input = "";
+    string input;
     getline(cin, input);
     vector<int> reactivity;
     istringstream ts(input);
@@ -46,7 +51,7 @@ int main()
         }
         
     }
-    int n = sizeof(reactivity) / sizeof(reactivity[0]);
+    int n = reactivity.size();
 	cout << MaxGCD(reactivity, n);
     
     return 0;

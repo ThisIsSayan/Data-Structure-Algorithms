@@ -16,7 +16,6 @@ int MaxGCD(vector<int> reactivity, int n)
 	for (int i = 0; i < n - 1; i++) 
     {
 		int val = GCD(reactivity[i], reactivity[i + 1]);
-
 		if (val > max) 
         {
 			max = val;
@@ -48,6 +47,8 @@ int main()
     }
     int n = sizeof(reactivity) / sizeof(reactivity[0]);
 	cout << MaxGCD(reactivity, n);
-    
-    return 0;
+
+  for(int i : reactivity)
+    cout << i << endl;
+  return 0;
 }
